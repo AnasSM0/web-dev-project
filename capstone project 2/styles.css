@@ -78,9 +78,10 @@ p{
     font-family: Vidoloka;
 }
 
-.coding-gif{
+.parent{
 
-    left: 30%;
-    
+display: grid;
+grid-template-columns: 0.5fr 1fr;
+grid-template-rows: repeat(1,1fr);
 
 }
