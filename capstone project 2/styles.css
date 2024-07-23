@@ -83,5 +83,18 @@ p{
 display: grid;
 grid-template-columns: 0.5fr 1fr;
 grid-template-rows: repeat(1,1fr);
+width: 50%;
+margin: 100px auto 0 auto;
+text-align: left;
+row-gap: 2rem;
+
+}
+
+.skill-gif img, .skill-gif2 img {
+
+    margin-top: -30px; 
+    vertical-align: middle;
+    max-width: 100%; 
+    height: auto;
 
 }
