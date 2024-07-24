@@ -19,7 +19,8 @@ padding-bottom: 20px;
 align-items: center;
 
 }
-.hero{
+
+.top-container{
 font-family:'Satisfy', static;
 position: relative;
 color: #003366;
@@ -58,7 +59,7 @@ height: 150px;
     font-size: 50px !important;
     padding-top: 20px;
     padding-bottom: 10px;
-    color: #95D2B3;
+    color: #5AB2FF;
     font-family: Vidoloka;
     display: flex;
     text-align: center;
@@ -74,8 +75,9 @@ p{
     font-size: 40px !important;
     font-weight: bold;
     bottom: 15px;
-    color: #95D2B3;
+    color: #5AB2FF;
     font-family: Vidoloka;
+    margin-top: -50px;
 }
 
 .parent{
@@ -84,17 +86,42 @@ display: grid;
 grid-template-columns: 0.5fr 1fr;
 grid-template-rows: repeat(1,1fr);
 width: 50%;
-margin: 100px auto 0 auto;
+margin: 50px auto 0 auto;
 text-align: left;
 row-gap: 2rem;
 
+
+}
+ .skill-gif2 img {
+
+    
+    max-width: 100%; 
+    height: auto;
+    padding-right: 20px;
+    
 }
 
-.skill-gif img, .skill-gif2 img {
+.skill-gif1{
 
     margin-top: -30px; 
     vertical-align: middle;
-    max-width: 100%; 
-    height: auto;
+    
+}
+
+.skill-text{
+    color: #5AB2FF;
+}
+
+.bottom-container{
+
+background-color: #A0DEFF;
 
 }
+
+.item{
+
+    color: #03AED2;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
