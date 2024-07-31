@@ -8,12 +8,14 @@ function HandleClick(){
 
     var buttonInnerHTML= this.innerHTML;
     makeSound(buttonInnerHTML)
+    ButtonAnimation(buttonInnerHTML);
 
 } 
 
 document.addEventListener("keydown",function(event){
 
     makeSound(event.key)
+    ButtonAnimation(event.key)
 
 })
 
@@ -79,3 +81,17 @@ function makeSound(key){
 
 }
 
+function ButtonAnimation(currentKey){
+
+
+var activeButton = document.querySelector("." + currentKey);
+
+activeButton.classList.add("pressed");
+
+setTimeout(function(){
+
+activeButton.classList.remove("pressed")
+
+})
+
+}
