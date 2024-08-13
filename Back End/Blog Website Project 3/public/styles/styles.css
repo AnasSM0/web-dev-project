@@ -11,7 +11,10 @@
 
 label {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    padding: 5px 6px 5px;
+    margin-bottom: 7px;
+
 }
 
 .form-control {
@@ -34,3 +37,4 @@ label {
     background-color: #0056b3;
     box-shadow: 0 7px 20px rgba(0, 123, 255, 0.5);
 }
+
