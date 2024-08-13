@@ -11,35 +11,41 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/styles/main.css"/>
     <title>Blogs</title>
 </head>
 <body>
 
 <div class="container">
-    <h1 class="my-5">Blogs</h1>
+    <h1 class="my-5 text-center">Explore Our Blogs</h1>
 
     <% if (message) { %>
-        <div class="alert alert-success"><%= message %></div>
+        <div class="alert alert-success text-center"><%= message %></div>
     <% } %>
 
-    <% blogs.forEach((blog, index) => { %>
-        <div class="card my-4">
-            <div class="card-body">
-                <h5 class="card-title"><%= blog.category %></h5>
-                <h6 class="card-subtitle mb-2 text-muted">By <%= blog.author %> | <%= blog.email %></h6>
-                <p class="card-text"><%= blog.content.substring(0, 150) %>...</p>
-                
-                <!-- Read More button -->
-                <a href="/blogs/<%= index %>" target="_blank" class="btn btn-primary btn-sm">Read More</a>
-                
-                <!-- Edit and Delete options -->
-                <a href="/edit/<%= index %>" class="btn btn-warning btn-sm">Edit</a>
-                <form action="/delete/<%= index %>" method="POST" style="display:inline;">
-                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                </form>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <% blogs.forEach((blog, index) => { %>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary"><%= blog.category %></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">By <%= blog.author %> | <%= blog.email %></h6>
+                        <p class="card-text"><%= blog.content.substring(0, 150) %>...</p>
+                    </div>
+                    <div class="card-footer text-end">
+                        <!-- Read More button -->
+                        <a href="/blogs/<%= index %>" target="_blank" class="btn btn-primary btn-sm">Read More</a>
+                        
+                        <!-- Edit and Delete options -->
+                        <a href="/edit/<%= index %>" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="/delete/<%= index %>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
-    <% }); %>
+        <% }); %>
+    </div>
 </div>
 
 <script
