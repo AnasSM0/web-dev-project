@@ -36,18 +36,40 @@ const getSpotifyToken = async () => {
   }
 };
 
+// Function to search for an artist by name and return their Spotify ID
+const getArtistId = async (accessToken, artistName) => {
+  try {
+    const response = await axios.get('https://api.spotify.com/v1/search', {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      },
+      params: {
+        q: artistName,
+        type: 'artist',
+        limit: 1
+      }
+    });
+
+    const artist = response.data.artists.items[0];
+    return artist ? artist.id : null;
+  } catch (error) {
+    console.error(`Error searching for artist ${artistName}:`, error.response ? error.response.data : error.message);
+    throw new Error('Failed to get artist ID');
+  }
+};
+
 // Function to get recommendations from Spotify
-const getSpotifyRecommendations = async (accessToken, mood, bands, genres) => {
+const getSpotifyRecommendations = async (accessToken, moodTrackId, bandIds, genres) => {
   try {
     const response = await axios.get('https://api.spotify.com/v1/recommendations', {
       headers: {
         'Authorization': `Bearer ${accessToken}`
       },
       params: {
-        seed_artists: bands,   // Comma-separated string of artist IDs
-        seed_genres: genres,   // Comma-separated string of genres
-        seed_tracks: mood,     // Optionally, you can use mood-related tracks if available
-        limit: 1,              // Limit the number of recommendations to 1
+        seed_artists: bandIds,   // Comma-separated string of artist IDs
+        seed_genres: genres,     // Comma-separated string of genres
+        seed_tracks: moodTrackId, // Optionally, you can use mood-related tracks if available
+        limit: 1,                // Limit the number of recommendations to 1
         market: 'US'
       }
     });
@@ -65,16 +87,18 @@ app.get("/", (req, res) => {
 
 app.post("/recommend", async (req, res) => {
   const { mood, bands, genres } = req.body;
-  
+
   try {
     const accessToken = await getSpotifyToken();
 
-    // Convert mood, bands, and genres to suitable seeds
-    const moodTrackId = ""; // This needs to be a valid Spotify track ID related to the mood
-    const bandIds = ""; // You need to fetch artist IDs based on the band names provided
-    const genreList = genres; // Ensure this matches Spotify's supported genres
+    // Get artist IDs for each band
+    const artistIdsPromises = bands.split(',').map(band => getArtistId(accessToken, band.trim()));
+    const artistIds = (await Promise.all(artistIdsPromises)).filter(id => id).join(',');
 
-    const recommendedTrack = await getSpotifyRecommendations(accessToken, moodTrackId, bandIds, genreList);
+    // Convert mood to a suitable track ID (if needed)
+    const moodTrackId = ""; // You might want to implement a method to get a track ID based on the mood
+
+    const recommendedTrack = await getSpotifyRecommendations(accessToken, moodTrackId, artistIds, genres);
 
     res.json({
       name: recommendedTrack.name,
