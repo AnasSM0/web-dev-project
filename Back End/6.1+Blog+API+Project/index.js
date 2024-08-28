@@ -44,6 +44,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/posts",(req,res)=>{
 
+console.log(posts);
 res.json(posts);
 
 });
