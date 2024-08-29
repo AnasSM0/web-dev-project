@@ -81,6 +81,13 @@ const getSpotifyRecommendations = async (accessToken, moodTrackId, bandIds, genr
   }
 };
 
+// Helper function to get a mood track ID (placeholder)
+const getMoodTrackId = async (accessToken, mood) => {
+  // This function could map mood to a specific track ID
+  // For now, returning an empty string means no specific mood-related track is used
+  return "";
+};
+
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
@@ -95,8 +102,8 @@ app.post("/recommend", async (req, res) => {
     const artistIdsPromises = bands.split(',').map(band => getArtistId(accessToken, band.trim()));
     const artistIds = (await Promise.all(artistIdsPromises)).filter(id => id).join(',');
 
-    // Convert mood to a suitable track ID (if needed)
-    const moodTrackId = ""; // You might want to implement a method to get a track ID based on the mood
+    // Get mood track ID (if you decide to implement it)
+    const moodTrackId = await getMoodTrackId(accessToken, mood);
 
     const recommendedTrack = await getSpotifyRecommendations(accessToken, moodTrackId, artistIds, genres);
 
