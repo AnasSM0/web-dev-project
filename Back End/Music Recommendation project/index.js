@@ -6,8 +6,6 @@ const app = express();
 const port = 3000;
 
 // Spotify API credentials
-const clientId = 'c988a3bb2d0643fba5df4294d83af09e'; // Replace with your Spotify client ID
-const clientSecret = '257971d2d2374a47bd0f05d17a1b7a09'; // Replace with your Spotify client secret
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
