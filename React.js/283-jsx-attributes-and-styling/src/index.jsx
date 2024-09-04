@@ -5,9 +5,9 @@ ReactDOM.render(
   <div>
     <h1>My Favourite Foods</h1>
     <ul>
-      <li>Bacon</li>
-      <li>Jamon</li>
-      <li>Noodles</li>
+      <li><img className="foodimg" src="noodles.jpg"></img></li>
+      <li><img className="foodimg" src="jamon.jpg"></img></li>
+      <li><img className="foodimg" src="bacon.jpg"></img></li>
     </ul>
   </div>,
   document.getElementById("root")
