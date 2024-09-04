@@ -7,6 +7,19 @@
 //Created by Angela Yu.
 //Copyright 2019.
 
+import React from "react";
+import ReactDOM from "react-dom";
+
+const name = "AnasSM0";
+const year = new Date().getFullYear();
+
+ReactDOM.render(
+  <div>
+    <p>Created by {name}</p>
+    <p>Copyright {year}</p>
+  </div>, document.getElementById("root")
+);
+
 // If you're running this locally in VS Code use the commands:
 // npm install
 // to install the node modules and
