@@ -1,4 +1,15 @@
 import React from "react";
+import emojipedia from "../emojipedia";
+
+function Entry(emoj){
+  return (
+key = {emoj.id}
+emoji = {emoj.emoji}
+name = {emoj.name}
+meaning = {emoj.meaning}
+)
+
+}
 
 function App() {
   return (
