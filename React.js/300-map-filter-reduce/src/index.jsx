@@ -1,4 +1,14 @@
+import emojipedia from "./emojipedia";
+
 var numbers = [3, 56, 2, 48, 5];
+
+const newDesc = emojipedia.map(function (emojiEntry){
+
+return emojiEntry.meaning.substring(0,100)
+
+})
+
+console.log(newDesc);
 
 //Map -Create a new array by doing something with each item in an array.
 
