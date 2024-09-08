@@ -1,13 +1,18 @@
 import React from "react";
 import emojipedia from "../emojipedia";
+import Entry from "./entry";
 
-function Entry(emoj){
-  return (
-key = {emoj.id}
-emoji = {emoj.emoji}
-name = {emoj.name}
-meaning = {emoj.meaning}
-)
+function CreateEntry(emojiTerm){
+
+return (<Entry 
+
+key = {emojiTerm.id}
+emoji = {emojiTerm.emoji}
+name = {emojiTerm.name}
+description = {emojiTerm.meaning}
+
+/>  )
+
 
 }
 
@@ -19,7 +24,10 @@ function App() {
       </h1>
 
       <dl className="dictionary">
-        <div className="term">
+        { emojipedia.map(CreateEntry)
+          
+        
+        /* <div className="term">
           <dt>
             <span className="emoji" role="img" aria-label="Tense Biceps">
               💪
@@ -56,7 +64,7 @@ function App() {
             face is laughing boundlessly. The emoji version of “rofl“. Stands
             for „rolling on the floor, laughing“.
           </dd>
-        </div>
+        </div> */}
       </dl>
     </div>
   );

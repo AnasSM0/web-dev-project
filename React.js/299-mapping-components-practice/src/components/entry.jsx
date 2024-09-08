@@ -1,24 +1,23 @@
 import React from "react";
 
-function Card(props){
+function Entry (props){
 
 return (
 
-<dl className="dictionary">
-        <div className="term">
+<div className="term">
           <dt>
-            <span className="emoji" role="img" aria-label={props.name}>
+            <span className="emoji" role="img" aria-label="Tense Biceps">
               {props.emoji}
             </span>
             <span>{props.name}</span>
           </dt>
           <dd>
-            {props.meaning}
+            {props.description}
           </dd>
         </div>
 
-
-)
-
+);
 
 }
+
+export default Entry;
