@@ -9,6 +9,9 @@ const [cat,dog] = animals;
 
 console.log(cat);
 
+const {name, sound} = cat;
+console.log(sound);
+
 // ReactDOM.render(
 //   <table>
 //     <tr>
