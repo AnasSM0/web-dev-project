@@ -11,7 +11,7 @@ function App() {
 
   function HandleClick(){
 setHeading(name);
-
+event.preventDefault();
   }
 
   return (
@@ -21,7 +21,7 @@ setHeading(name);
         type="text"
         placeholder="What's your name?"
       />
-      <button  onClick={HandleClick}>Submit</button>
+      <button type="submit" onClick={HandleClick}>Submit</button>
     </div>
   );
 }
