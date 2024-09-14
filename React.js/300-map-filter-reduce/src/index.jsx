@@ -8,6 +8,7 @@ return emojiEntry.meaning.substring(0,100)
 
 })
 
+
 console.log(newDesc);
 
 //Map -Create a new array by doing something with each item in an array.
